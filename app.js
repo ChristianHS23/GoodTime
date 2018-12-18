@@ -7,7 +7,17 @@ const Tag = require('./routes/Tag')
 const User = require('./routes/User')
 
 
+app.set("view engine", "ejs")
 
+app.use(express.urlencoded({extended:false}))
+app.use(express.json())
+
+
+
+app.use('/post', Post)
+app.use('/role', Role)
+app.use('/tag', Tag)
+app.use('/user', User)
 
 
 
