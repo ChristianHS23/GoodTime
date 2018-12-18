@@ -12,6 +12,20 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
+   let objTag = [{
+     name: 'Adventure'
+   },{
+    name: 'RPG'
+  },{
+    name: 'RTS'
+  },{
+    name: 'Action'
+  },{
+    name: 'Fighting'
+  },{
+    name: 'MMORPG'
+  }]
+   return queryInterface.bulkInsert('Tags', objTag, {})
   },
 
   down: (queryInterface, Sequelize) => {
@@ -22,5 +36,7 @@ module.exports = {
       Example:
       return queryInterface.bulkDelete('People', null, {});
     */
+
+    return queryInterface.bulkDelete(`Tags`, null, {})
   }
 };
