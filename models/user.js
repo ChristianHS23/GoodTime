@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
       validate: {
         is : {
           args : /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/i ,
-          msg : "Password Must Have 1 Uppercase 1 and 8 characters"
+          msg : "Password Must Have 1 Uppercase 1 Number and 8 Characters"
         }
       }
     },
@@ -61,7 +61,8 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    reputasi: DataTypes.REAL
+    reputasi: DataTypes.REAL,
+    isBan : DataTypes.BOOLEAN
   }, {});
   User.associate = function(models) {
     // associations can be defined here
