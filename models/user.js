@@ -10,7 +10,7 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    email: DataTypes.STRING,
+    email: DataTypes.INTEGER,
     reputasi: DataTypes.REAL
   }, {});
   User.associate = function(models) {
