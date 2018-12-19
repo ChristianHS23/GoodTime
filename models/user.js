@@ -1,5 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+  const crypto = require('crypto')
+  const Op = sequelize.Op
   const User = sequelize.define('User', {
 
     username: {
@@ -67,7 +69,6 @@ module.exports = (sequelize, DataTypes) => {
     role: DataTypes.STRING
   }, {hooks: {
     beforeCreate: (value) => {
-      
       return new Promise ((resolve, reject)=> {
         crypto.randomBytes(40, (err,buf)=> {
           if(err) reject( err)
