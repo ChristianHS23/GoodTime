@@ -6,10 +6,11 @@ const Role = require('./routes/Role')
 const Tag = require('./routes/Tag')
 const User = require('./routes/User')
 const Index = require('./routes/Index')
+const path = require('path')
 
 app.set("view engine", "ejs")
 app.use(express.static('views'))
-
+app.use(express.static(path.join(__dirname, 'views')))
 app.use(express.urlencoded({extended:false}))
 app.use(express.json())
 
