@@ -1,5 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
+  const Op = sequelize.Op
   const Tag = sequelize.define('Tag', {
     name: {type: DataTypes.STRING,
       isUnique: function(value, next) {
