@@ -2,6 +2,15 @@ const express = require('express')
 const router = express.Router()
 const Model = require('../models')
 
+
+router.get(`/register`, (req, res)=> {
+    let info = req.query.info
+    let err = req.query.err
+
+    res.render('register', {info: info, err: err})
+
+})
+
 router.post('/register',(req,res)=> {
     // res.send('ini tampilan list user aktif dari forum kami')
     let info = `Success to register`
@@ -10,7 +19,8 @@ router.post('/register',(req,res)=> {
         password : req.body.password,
         email : req.body.email,
     }
-
+    console.log(objUser);
+    
     Model.User.create(objUser)
     .then(()=> {
         res.redirect(`/user/register?info=${info}`)
@@ -18,14 +28,6 @@ router.post('/register',(req,res)=> {
     .catch((err)=> {
         res.redirect(`/user/register?err=${err}`)
     })
-})
-
-router.get(`/register`, (req, res)=> {
-    let info = req.query.info
-    let err = req.query.err
-
-    res.render('register', {info: info, err: err})
-
 })
 
 router.get('/edit/:id',(req,res)=>{
