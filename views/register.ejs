@@ -6,14 +6,43 @@
 <body>
 	<%- include ./partials/banner.ejs %>
    <div class="main">
-    
-    <div class="middle_content">
-    	<div class="container">
-    		<h2>Welcome to GTimes</h2>
-    		<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-    	</div>
-    </div>
-   	
+       <form action="/user/register" method="POST">
+        <div class="account-in">
+                <div class="container">
+                   <form> 
+                  <div class="register-top-grid">
+                   <h2>REGISTER INFORMATION</h2>
+                   <%= info %>
+                   <%= err %>
+                    <div>
+                       <span>Username<label>*</label></span>
+                       <input type="text" name="username"> 
+                    </div>
+                    <div>
+                        <span>Email Address<label>*</label></span>
+                        <input type="text" name="email"> 
+                    </div>
+                    <div class="register-bottom-grid">
+                            <div>
+                               <span>Password<label>*</label></span>
+                               <input type="password" name="password">
+                            </div>
+                            <div>
+                               <span>Confirm Password<label>*</label></span>
+                               <input type="password" name="confirmpassword">
+                            </div>
+                            <div class="clearfix"> </div>
+                            <div class="clearfix"> </div>
+                    <div class="register-but">
+                            <input type="submit" value="submit">                   
+                    </div>
+                 </form>
+              
+               </div>
+              </div>
+          </div>
+        </form>
+
    </div>
    <%- include ./partials/footer.ejs %>
 </body>
