@@ -25,3 +25,5 @@ router.get('/edit',(req,res)=>{
 router.post('/edit',(req,res)=>{
     res.send('sukses edit tag')
 })
+
+module.exports = router
