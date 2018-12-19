@@ -2,8 +2,15 @@ const express = require('express')
 const router = express.Router()
 const Model = require('../models')
 
-router.get('/',(req,res)=>{
-    res.send('ini tampilan list user aktif dari forum kami')
+router.get('/register',(req,res)=>{
+    // res.send('ini tampilan list user aktif dari forum kami')
+    let objUser = {
+        username : req.body.username,
+        password : req.body.password,
+        email : req.body.email,
+        
+    }
+    Model.User.create()
 })
 
 router.get('/edit/:id',(req,res)=>{
