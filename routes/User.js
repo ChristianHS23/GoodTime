@@ -23,7 +23,9 @@ router.post('/register',(req,res)=> {
 router.get(`/register`, (req, res)=> {
     let info = req.query.info
     let err = req.query.err
+
     res.render('register', {info: info, err: err})
+
 })
 
 router.get('/edit/:id',(req,res)=>{
