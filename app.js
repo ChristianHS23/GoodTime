@@ -19,7 +19,7 @@ app.use(express.json())
 app.use('/', Index)
 app.use('/user', User)
 
-// app.use('/post', Post)
+app.use('/post', Post)
 // app.use('/role', Role)
 // app.use('/tag', Tag)
 
