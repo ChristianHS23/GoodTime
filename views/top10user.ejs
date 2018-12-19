@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include ./partials/head.ejs %>
+</head>
+<body>
+	<%- include ./partials/banner.ejs %>
+   <div class="main">
+    
+    <div class="middle_content">
+    	<div class="container">
+                <div class="col2">
+                        <div class="h_nav">
+                            <h4>Top 10 User</h4>
+                            <ul>
+                                <li class>
+                                     <% data.forEach(element=>{ %>
+                                    <div class="p_left">
+                                      <img src="/images/p1.jpg" class="img-responsive" alt=""/>
+                                    </div>
+                                    <div class="p_right">
+                                       
+                                         <h4><a href="/user/<%= element.id %>"> <%= element.username %></a></h4>
+                                         <span class="price">rating : <%= element.reputasi %></span>
+                                    
+                                    </div>
+                                    <div class="clearfix"> </div>
+                                    <%  }) %>
+                                </li>                               
+                            </ul>	
+                        </div>												
+                    </div>
+    	</div>
+    </div>
+   	
+   </div>
+   <%- include ./partials/footer.ejs %>
+</body>
+</html>
