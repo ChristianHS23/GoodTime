@@ -18,7 +18,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       reputasi: {
-        type: Sequelize.REAL
+        type: Sequelize.REAL,
+        defaultValue: 0
       },
       createdAt: {
         allowNull: false,

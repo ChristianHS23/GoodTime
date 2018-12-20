@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include ./partials/head.ejs %>
+</head>
+<body>
+	<%- include ./partials/banneradmin.ejs %>
+   <div class="main">
+    
+    <div class="middle_content">
+    	<div class="container">
+            <h2>List User</h2>
+            <h3><%=info %></h3>
+            <h3><%=err %></h3>
+                <table style="width:100%">
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <th><a href="/admin/listuser/id"> <center> Id</center></a> </th>
+                        <th> <a href="/admin/listuser/username"> <center> Username </center></a></th>
+                        <th> <a href="/admin/listuser/reputation"> <center>Reputation</center> </a> </th>
+                        <th> <a href="/admin/listuser/email"><center>Email</center> </a>  </th>
+                        <th><a href="/admin/listuser/role"> <center>Role</center></a>  </th>
+                        <th> <a href="/admin/listuser/status"> <center>Status Ban</center></a> </th>
+                        <th><center>Option</center> </th>
+                    </tr>
+                    <% user.forEach(userData =>{ %>
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <td><%= userData.id %></td>
+                        <td><%= userData.username %></td>
+                        <td><%= userData.reputasi %> </td>   
+                        <td><%= userData.email %> </td>      
+                        <td><%= userData.role %> </td>     
+                        <td><%= userData.isBan %> </td>  
+                        <td><a href="/admin/listuser/edit/<%= userData.id %>">edit</a> | <a href="/admin/listuser/delete/<%= userData.id%>"  onclick="return confirm('Are you sure to delete user ?')">delete</a> | <a href="/admin/listuser/ban/<%= userData.id%>"  onclick="return confirm('Are you sure to Ban this user ?')">Ban</a>  </td>           
+                    </tr>
+                    <% }) %>
+                    
+                </table>
+
+        </div>
+    </div>
+   	
+   </div>
+   <%- include ./partials/footer.ejs %>
+</body>
+</html>		

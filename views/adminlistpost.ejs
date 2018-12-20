@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include ./partials/head.ejs %>
+</head>
+<body>
+	<%- include ./partials/banneradmin.ejs %>
+   <div class="main">
+    
+    <div class="middle_content">
+    	<div class="container">
+            <h2>List User</h2>
+            <h3><%=info %></h3>
+            <h3><%=err %></h3>
+                <table style="width:100%">
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <th> <center> Id</center> </th>
+                        <th> <center> Title </center> </th>
+                        <th>  <center>Posted By</center>  </th>
+                        <th> <center>Option</center> </th>
+                    </tr>
+                    <% post.forEach(userPost =>{ %>
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <td><%= userPost.id %></td>
+                        <td><%= userPost.title %></td>
+                        <td><%= userPost.User.username %> </td>    
+                        <a href="/admin/listpost/delete/<%= userPost.id%>"  onclick="return confirm('Are you sure to delete post ?')">delete</a> </td>           
+                    </tr>
+                    <% }) %>
+                    
+                </table>
+
+        </div>
+    </div>
+   	
+   </div>
+   <%- include ./partials/footer.ejs %>
+</body>
+</html>		
