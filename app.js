@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.Port || 3000;
 const Post = require('./routes/Post')
 const Role = require('./routes/Role')
 const Tag = require('./routes/Tag')
@@ -36,14 +36,14 @@ app.use('/', Index)
 // register
 // login
 
-// app.use(middlewareLogin)
+app.use(middlewareLogin)
 
 app.use('/user', User)
 app.use('/post', Post)
 app.use('/role', Role)
 app.use('/tag', Tag)
 
-// app.use(middlewareLoginRole)
+app.use(middlewareLoginRole)
 app.use('/admin', Admin)
 
 
