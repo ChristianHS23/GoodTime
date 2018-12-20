@@ -17,6 +17,8 @@ router.post('/:UserId/createpost', (req, res)=> {
         res.send(err)
     })
 
+    res.render('post', {info, err})
+
 })
 
 
