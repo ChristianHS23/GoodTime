@@ -9,6 +9,10 @@ router.get('/',(req,res)=>{
     res.render('index.ejs', {info: info, err: err, session : req.session.user})
 })
 
+router.get('/rules',(req,res)=>{
+    res.render('rules.ejs',{session:req.session.user})
+})
+
 router.get('/top10',(req,res)=>{
     Model.User.findAll({
         limit : 10,
