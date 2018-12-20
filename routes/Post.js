@@ -23,16 +23,16 @@ router.post('/:UserId/createpost', (req, res)=> {
 
 
 router.get('/listPost', (req, res)=> {
-    Model.User.findAll({
+    Model.Post.findAll({
 
         include: [
-            {model: Model.Post , include: [
+            {model: Model.User , include: [
                 {model: Model.PostLike}
             ]} 
         ]
     })
     .then(data => {
-        res.render('post.ejs',{data})
+        res.render('post.ejs',{data})        
         // res.send(data)
     })
     .catch(err => res.send(err.message))

@@ -1,41 +1,60 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <%- include ./partials/head.ejs %>
 </head>
+
 <body>
-	<%- include ./partials/banner.ejs %>
-   <div class="main">
-    
-    <div class="middle_content">
-    	<div class="container">
-            <h2>Welcome to GTimes</h2>
-            <% data.forEach(element=>{ %>
-                <p> username = <%= element.username %></p>
-                <p> reputasi = <%= element.reputasi %></p>
-                <% element.Posts.forEach(singlePost=>{ %>
-                    <p> Post = <%= singlePost.title %> </p>
-                        <% var countLike = 0 %>
-                        <% var countDislike = 0 %>
-                    <% singlePost.PostLikes.forEach(dataLike=>{ %>
-                        
-                        <% if(dataLike.Like == true) { %>
-                            <% countLike++ %>
-                       <% } else if(dataLike.Like == false) { %>
-                        <% countDislike++ %>
-                      <% } %>
-                        
-                 <% }) %>
-                 <p> Like = <%= countLike %></p>
-                        <p> Dislike = <%= countDislike %></p>
-                 <% }) %>                    
-               <% }) %>                
-            
-    		
-    	</div>
+    <%- include ./partials/banner.ejs %>
+    <div class="main">
+
+        <div class="middle_content">
+            <div class="container">
+                <h2>Welcome to GTimes</h2>
+                <table style="width:100%">
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <th >Post Title</th>
+                        <th>Posting By</th>
+                        <th>Like</th>
+                        <th>Dislike</th>
+                    </tr>
+                    <% data.forEach(elemen=>{ %>
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <td><a href="/post/<%= elemen.id %>"><%= elemen.title %></a></td>
+                        <td>
+                            <% elemen.Users.forEach(deepElemen=>{
+                                if (elemen.UserId == deepElemen.id){ %>
+                                    <%= deepElemen.username %>                                    
+                            <% }}) %>                          
+                        </td>
+                        <td>
+                            <% let like = 0 %>
+                                <% elemen.Users.forEach(deepElemen=>{
+                                    if (deepElemen.PostLike.Like == true){ %>
+                                        <% like++ %>               
+                                <% }}) %>
+                                <%= like %>
+                        </td>
+                        <td>
+                                <% let dislike = 0 %>
+                                <% elemen.Users.forEach(deepElemen=>{
+                                    if (deepElemen.PostLike.Like == false){ %>
+                                        <% dislike++ %>               
+                                <% }}) %>
+                                <%= dislike %>
+                            </td>
+                    </tr>
+                    <% }) %>
+                    
+                </table>
+
+
+            </div>
+        </div>
+
     </div>
-   	
-   </div>
-   <%- include ./partials/footer.ejs %>
+    <%- include ./partials/footer.ejs %>
 </body>
-</html>		
+
+</html>
