@@ -49,7 +49,7 @@ router.get('/listpost/:postid',(req,res)=>{
     })
     .then(data => {
         // res.send(data)
-        res.render('detailedPost.ejs',{data:data})
+        res.render('detailedPost.ejs',{data:data, session : req.session.user})
     })
 })
 
