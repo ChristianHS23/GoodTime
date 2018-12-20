@@ -8,15 +8,18 @@
 <body>
     <%- include ./partials/banner.ejs %>
     <div class="main">
+        
 
         <div class="middle_content">
             <div class="container">
+                <h1><%= info %></h1>
                 <h2><%= data.title %></h2>
                 <p><%= data.content %></p>
                 
-
+                <h3><a href="/user/listpost/<%= data.id %>/like">LIKE THIS POST</a></h3>
 
             </div>
+            <h3><a href="/user">Back to Homepage</a></h3>
         </div>
 
     </div>
