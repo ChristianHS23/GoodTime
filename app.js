@@ -27,6 +27,12 @@ app.use(session(sess))
 
 app.use('/', Index)
 
+<<<<<<< HEAD
+// register
+// login
+
+=======
+>>>>>>> 486bab90cba52d79d8038cad525b6a8c18ecd801
 // app.use(middlewareLogin)
 app.use('/user', User)
 app.use('/post', Post)
