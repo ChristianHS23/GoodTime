@@ -52,9 +52,12 @@ router.post('/register',(req,res)=> {
     })
 })
 
+router.get('/logout',(req, res)=> {
+    req.session.destroy()
+    res.redirect('/')
+})
 
-router.get('/login',(req, res)=>{
-
+router.get('/login',(req, res)=> {
     let info = req.query.info
     let err = req.query.err
     res.render('login.ejs',{info:info, err:err, session : req.session.user})

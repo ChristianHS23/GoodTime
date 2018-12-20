@@ -26,6 +26,7 @@ app.use(express.json())
 app.use(session(sess))
 
 
+
 // app.locals({})
 
 app.use('/', Index)
