@@ -5,8 +5,6 @@ router.get('/createpost', (req, res)=> {
     let info = req.query.info
     let err = req.query.err
 
-
-
 })
 
 
