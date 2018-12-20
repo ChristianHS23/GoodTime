@@ -21,7 +21,7 @@
                     </tr>
                     <% data.forEach(elemen=>{ %>
                     <tr style="border: 1px solid black ;width: 100%;">
-                        <td><a href="/post/listpost/<%= elemen.id %>"><%= elemen.title %></a></td>
+                        <td><a href="/user/listpost/<%= elemen.id %>"><%= elemen.title %></a></td>
                         <td>
                             <% elemen.Users.forEach(deepElemen=>{
                                 if (elemen.UserId == deepElemen.id){ %>
