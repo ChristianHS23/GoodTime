@@ -16,7 +16,7 @@ router.get('/listPost', (req, res)=> {
             ]} 
         ]
     })
-    .then(data => res.send(data))
+    .then(data => res.render('post.ejs',{data}))
     .catch(err => res.send(err.message))
 })
 
