@@ -13,7 +13,24 @@
             <% data.forEach(element=>{ %>
                 <p> username = <%= element.username %></p>
                 <p> reputasi = <%= element.reputasi %></p>
-            <% }) %>
+                <% element.Posts.forEach(singlePost=>{ %>
+                    <p> Post = <%= singlePost.title %> </p>
+                        <% var countLike = 0 %>
+                        <% var countDislike = 0 %>
+                    <% singlePost.PostLikes.forEach(dataLike=>{ %>
+                        
+                        <% if(dataLike.Like == true) { %>
+                            <% countLike++ %>
+                       <% } else if(dataLike.Like == false) { %>
+                        <% countDislike++ %>
+                      <% } %>
+                        
+                 <% }) %>
+                 <p> Like = <%= countLike %></p>
+                        <p> Dislike = <%= countDislike %></p>
+                 <% }) %>                    
+               <% }) %>                
+            
     		
     	</div>
     </div>
