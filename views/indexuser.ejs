@@ -11,12 +11,13 @@
 
         <div class="middle_content">
             <div class="container">
-                <h2>Welcome to GTimes</h2>
+                <h3>Welcome to GTimes</h3>
+                <p><h3>ALL RECENT POSTS :</h3></p>
                 <table style="width:100%">
                     <tr style="border: 1px solid black ;width: 100%;">
-                        <th >Post Title :</th>
-                        <th>Posted By :</th>
-                        <th>Like :</th>
+                        <th><center>Post Title </center></th>
+                        <th><center>Posted By</center></th>
+                        <th><center>Like</center></th>
                         
                     </tr>
                     <% data.forEach(elemen=>{ %>
@@ -41,8 +42,11 @@
                     
                 </table>
 
-
+                
+                
             </div>
+            <h3><a href="/user/<%= session.id %>/createpost">CREATE NEW POST</a></h3>
+            <h3><a href="/user/<%= session.id %>/profile">MY CONTROL PANEL</a></h3>
         </div>
 
     </div>

@@ -4,28 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     PostId: DataTypes.INTEGER,
     UserId: DataTypes.INTEGER,
     Like: DataTypes.BOOLEAN
-  }, {
-    // hooks: {
-    //   beforeCreate: (value) => {        
-    //     sequelize.models.PostLike.find({
-    //       where: {
-    //         UserId : value.UserId,
-    //         PostId : value.PostId
-    //       }
-    //     })
-    //     .then(data=>{
-    //       if(data){
-    //         console.log('===>>>',data)
-    //         throw new Error(`you already liked this post`)
-    //       }          
-    //     })
-    //     .catch(err=>{
-    //       throw new Error(err)
-    //     })
-    //   }
-    // }
-  }
-  );
+  }, {});
   PostLike.beforeCreate(function(value){
     return sequelize.models.PostLike.find({
       where: {

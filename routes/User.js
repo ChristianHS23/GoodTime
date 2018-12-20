@@ -61,6 +61,29 @@ router.get('/listpost/:postid/like',(req,res)=>{
     })
 })
 
+router.get('/:UserId/createpost',(req,res)=>{
+    res.render(`createpost.ejs`,{session : req.session.user})
+})
+
+router.post('/:UserId/createpost', (req, res)=> {
+    let userid = req.params.UserId    
+    let newPost = req.body
+    let objPost = {
+        title : newPost['title'],
+        content : newPost['content'],
+        UserId : userid
+    }
+    Model.Post.create(objPost)
+    .then(()=>{
+        res.redirect(`/user/listpost/${userid}`)
+    })
+    .catch(err=>{
+        res.send(err)
+    })
+    // res.render('post', {info, err, session : req.session.user})
+
+})
+
 router.post('/edit/:id',(req,res)=>{
     res.send('hore edit sukses')
 })

@@ -1,39 +1,38 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <%- include ./partials/head.ejs %>
 </head>
+
 <body>
-	<%- include ./partials/banner.ejs %>
-   <div class="main">    
+    <%- include ./partials/banner.ejs %>
+    <div class="main">
         <div class="account-in">
-                <div class="container">
-                        <form action="/post" method="POST">
-                    <%= info %>
-                   <%= err %>
-                  <div class="register-top-grid">
-                   <h2>Create Post</h2>
-                  
-                    <div>
-                       <span>Title<label>*</label></span>
-                       <input type="text" name="title"> 
+            <div class="container">
+                <form action="/user/<%= session.id %>/createpost" method="POST">
+                    <div class="register-top-grid">
+                        <h2>Create Post</h2>
+                        <div>
+                            <span>Title<label>*</label></span>
+                            <input type="text" name="title">
+                        </div>
                     </div>
-                    
+                    <div class="clearfix"> </div>
+                    <div class="clearfix"> </div>
                     <div class="register-bottom-grid">
                         <div>
-                                <span>Content<label>*</label></span>
-                                <textarea name="content" id="content" cols="100" rows="100"></textarea>
+                            <span>Content<label>*</label></span>
+                            <textarea name="content" id="content" cols="75" rows="6"></textarea>
+                            <input type="submit" value="Posting">
                         </div>
-                        <div class="clearfix"> </div>
-                        <div class="clearfix"> </div>
-                    <div class="register-but">
-                            <input type="submit" value="Posting">                   
                     </div>
-                 </form>
-               </div>
-              </div>
-          </div>
-   </div>
-   <%- include ./partials/footer.ejs %>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <%- include ./partials/footer.ejs %>
 </body>
-</html>		
+
+</html>
