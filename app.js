@@ -10,6 +10,8 @@ const path = require('path')
 const session  = require('express-session')
 const middlewareLogin = require('./middlewares/middlewareLogin')
 const Admin = require('./routes/Admin')
+const middlewareLoginRole = require('./helpers/middlewareLoginRole')
+
 
 app.set("view engine", "ejs")
 app.use(express.static('views'))
@@ -36,11 +38,13 @@ app.use('/', Index)
 
 app.use(middlewareLogin)
 
-app.use('/admin', Admin)
 app.use('/user', User)
 app.use('/post', Post)
 app.use('/role', Role)
 app.use('/tag', Tag)
+
+app.use(middlewareLoginRole)
+app.use('/admin', Admin)
 
 
 

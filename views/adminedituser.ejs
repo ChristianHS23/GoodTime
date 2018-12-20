@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include ./partials/head.ejs %>
+</head>
+<body onload="loadData()">
+	<%- include ./partials/banneradmin.ejs %>
+   <div class="main">
+    
+    <div class="middle_content">
+    	<div class="container">
+            <h2>Edit User</h2>
+            <h3><%=info %></h3>
+            <h3><%=err %></h3>
+
+        <form action="/admin/listuser/edit/<%= tempId %>" method="POST">
+           <center><table>
+                <tr>
+                    <td>Username:</td>
+                    <td> <input type="text" id="username" name="username" value=""> </td>
+                </tr>
+                <tr>
+                    <td>Email:</td>  
+                    <td><input type="text" id="email" name="email" value=""></td>  
+                </tr>
+                <tr>
+                      <td>Role:</td>  
+                      <td>
+                            <select name="role" id="role"  >
+                                    <option selected="selected" value="user" > User</option>
+                                    <option value="admin"> Admin</option>
+                            </select>
+                      </td>     
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Submit" onclick="return confirm('Are you sure to update User ?')"></td>
+                </tr>
+            </table></center> 
+       
+        </form> 
+
+   
+        </div>
+        </div>
+   	</div>
+
+<script>
+    
+    function loadData() {
+      let dataStudent ="<%= user %>"
+      if(dataStudent) {
+        document.getElementById("username").value = "<%= user.username %>"
+        document.getElementById("email").value = "<%= user.email %>"
+        document.getElementById("role").selectedIndex = "<%= user.role%>"
+      }
+    }
+  </script>
+   <%- include ./partials/footer.ejs %>
+</body>
+</html>		
