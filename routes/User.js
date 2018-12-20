@@ -81,7 +81,7 @@ router.post('/:UserId/createpost', (req, res) => {
     }
     Model.Post.create(objPost)
         .then(() => {
-            res.redirect(`/user/listpost/${userid}`)
+            res.redirect(`/user/${userid}/createpost/`)
         })
         .catch(err => {
             res.send(err)
