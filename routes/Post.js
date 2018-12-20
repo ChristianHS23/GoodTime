@@ -38,4 +38,19 @@ router.get('/listPost', (req, res)=> {
     .catch(err => res.send(err.message))
 })
 
+router.get('/listpost/:postid',(req,res)=>{
+    Model.Post.findOne({
+        include: [
+            {model: Model.User , include: [
+                {model: Model.PostLike}
+            ]} 
+        ],
+        where : {id : req.params.postid}
+    })
+    .then(data => {
+        // res.send(data)
+        res.render('detailedPost.ejs',{data:data})
+    })
+})
+
 module.exports = router

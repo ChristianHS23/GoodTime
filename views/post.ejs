@@ -14,14 +14,14 @@
                 <h2>Welcome to GTimes</h2>
                 <table style="width:100%">
                     <tr style="border: 1px solid black ;width: 100%;">
-                        <th >Post Title</th>
-                        <th>Posting By</th>
-                        <th>Like</th>
-                        <th>Dislike</th>
+                        <th >Post Title :</th>
+                        <th>Posting By :</th>
+                        <th>Like :</th>
+                        <th>Dislike :</th>
                     </tr>
                     <% data.forEach(elemen=>{ %>
                     <tr style="border: 1px solid black ;width: 100%;">
-                        <td><a href="/post/<%= elemen.id %>"><%= elemen.title %></a></td>
+                        <td><a href="/post/listpost/<%= elemen.id %>"><%= elemen.title %></a></td>
                         <td>
                             <% elemen.Users.forEach(deepElemen=>{
                                 if (elemen.UserId == deepElemen.id){ %>

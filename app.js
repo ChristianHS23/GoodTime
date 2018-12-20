@@ -33,7 +33,7 @@ app.use('/', Index)
 // register
 // login
 
-app.use(middlewareLogin)
+// app.use(middlewareLogin)
 
 app.use('/admin', Admin)
 app.use('/user', User)
