@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const Model = require('../models')
+const searchByOne = require('../helpers/searchByOne')
 
 router.get('/', (req, res) => {
     let user = req.session.user
@@ -11,11 +12,22 @@ router.get('/', (req, res) => {
 router.get(`/listpost`, (req, res)=> {
     let info = req.query.info
     let err = req.query.err
-
+    // let tempPost = []
     Model.Post.findAll()
     .then(dataPost=> {
-        
+        res.render('adminlistpost', {searchByOne : searchByOne ,info: info, err: err, session: req.session.user, Post:dataPost})
     })
+})
+
+router.get(`/listpost/delete/:id`, (req, res)=> {
+    let postId=req.params.id
+    Model.Post.destroy({where: {
+        id :postId
+    }})
+    .then(()=> {
+        res.redirect(`/admin/listpost?info=Success delete Post`)
+    })
+    .catch(err => res.redirect(`/admin/listpost?err=${err}`))
 })
 
 router.get('/listuser' ,(req, res)=> {

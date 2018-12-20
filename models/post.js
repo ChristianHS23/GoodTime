@@ -5,6 +5,9 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.TEXT,
     UserId:DataTypes.INTEGER
   }, {});
+
+ 
+
   Post.associate = function(models) {
     // associations can be defined here
     
