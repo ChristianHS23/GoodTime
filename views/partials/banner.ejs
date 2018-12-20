@@ -14,7 +14,7 @@
                    </a>
                     <div class="clearfix"> </div>
                    </ul>
-          <% } else if(session.role == "admin") { %>
+          <% } else if(session.role == "admin" || session.role == "user") { %>
                     <ul class="header_user_info">      
                         <a class="login" >    
                             <li class="user_desc">Username: <%= session.username%></li>  <br>
@@ -33,22 +33,7 @@
                     <div class="clearfix"> </div>
                     <div class="clearfix"> </div>
                    </ul>
-          <% } else if(session.role == "user") { %>
-            <ul class="header_user_info">
-                    <a class="login" >    
-                        <li class="user_desc">Username: <%= session.username%></li> <br>
-                        <li class="user_desc">Role: <%= session.role%></li> <br>
-                    </a>          
-                        <i class="user"> </i> 
-                    <a class="login" href="/logout">        
-                           
-                        <li class="user_desc">Logout</li>           
-                      </a>
-                     <div class="clearfix"> </div>
-                     <div class="clearfix"> </div>
-                     <div class="clearfix"> </div>
-                 </ul>
-            <% } %>
+          <% } %>
         
        <!-- start search-->
            <div class="search-box">

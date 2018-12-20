@@ -87,10 +87,16 @@ router.post('/login',(req, res)=>{
             if(hash == userLogin.password) {
              
                 req.session.user = {
+                    id: userLogin.id,
                     username: userLogin.username,
                     role: userLogin.role
                 }
-                res.redirect('/admin?info=Success Login')
+                if(userLogin.role == "admin"){
+                    res.redirect('/admin?info=Success Login')
+                } else if( userLogin.role == "user") {
+                    res.redirect('/user?info=Success Login')
+                }   
+              
             } else {
                 res.redirect('/login?err=Incorrect Password')
             }
