@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include ./partials/head.ejs %>
+</head>
+<body>
+	<%- include ./partials/banner.ejs %>
+   <div class="main">
+    
+    <div class="middle_content">
+    	<div class="container">
+            <h2>Welcome to GTimes</h2>
+            <% data.forEach(element=>{ %>
+                <p> username = <%= element.username %></p>
+                <p> reputasi = <%= element.reputasi %></p>
+            <% }) %>
+    		
+    	</div>
+    </div>
+   	
+   </div>
+   <%- include ./partials/footer.ejs %>
+</body>
+</html>		
