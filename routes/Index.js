@@ -45,10 +45,10 @@ router.post('/register',(req,res)=> {
     
     Model.User.create(objUser)
     .then(()=> {
-        res.redirect(`/user/register?info=${info}`)
+        res.redirect(`/register?info=${info}`)
     })
     .catch((err)=> {
-        res.redirect(`/user/register?err=${err}`)
+        res.redirect(`/register?err=${err}`)
     })
 })
 
@@ -61,7 +61,7 @@ router.get('/login',(req, res)=>{
 })
 
 router.post('/login',(req, res)=>{    
-    console.log('++++++++++++++++++++++++Masuk')
+  
     let inputPassword = req.body.password
     
     Model.User.findOne({
@@ -87,7 +87,7 @@ router.post('/login',(req, res)=>{
                     username: userLogin.username,
                     role: userLogin.role
                 }
-                res.redirect('/?info=Success Login')
+                res.redirect('/admin?info=Success Login')
             } else {
                 res.redirect('/login?err=Incorrect Password')
             }

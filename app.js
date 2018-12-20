@@ -9,6 +9,7 @@ const Index = require('./routes/Index')
 const path = require('path')
 const session  = require('express-session')
 const middlewareLogin = require('./middlewares/middlewareLogin')
+const Admin = require('./routes/Admin')
 
 app.set("view engine", "ejs")
 app.use(express.static('views'))
@@ -17,7 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Use the session middleware
- let sess = {
+ var sess = {
     secret: 'bebasajasihkak',
     cookie: {}
 }
@@ -25,15 +26,16 @@ app.use(express.json())
 app.use(session(sess))
 
 
+// app.locals({})
+
 app.use('/', Index)
 
-<<<<<<< HEAD
 // register
 // login
 
-=======
->>>>>>> 486bab90cba52d79d8038cad525b6a8c18ecd801
-// app.use(middlewareLogin)
+app.use(middlewareLogin)
+
+app.use('/admin', Admin)
 app.use('/user', User)
 app.use('/post', Post)
 app.use('/role', Role)
