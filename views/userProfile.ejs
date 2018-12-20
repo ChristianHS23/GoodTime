@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <%- include ./partials/head.ejs %>
+</head>
+
+<body>
+    <%- include ./partials/banner.ejs %>
+    <div class="main">
+
+        <div class="middle_content">
+            <div class="container">                
+                <p><h3>ALL USER POSTS :</h3></p>
+                <table style="width:100%">
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <th><center>Post Title </center></th>                        
+                        <th colspan="2"><center>Action</center></th>
+                        
+                    </tr>
+                    <% data.Posts.forEach(elemen=>{ %>
+                    <tr style="border: 1px solid black ;width: 100%;">
+                        <td><a href="/user/listpost/<%= elemen.id %>"><%= elemen.title %></a></td>                        
+                        <td>
+                            <a href="/user/<%= session.id %>/profile/editpost/<%= elemen.id %>">Edit</a>
+                        </td>
+                        <td>
+                                <a href="/user/<%= session.id %>/profile/deletepost/<%= elemen.id %>">Delete</a>
+                            </td>                       
+                    </tr>
+                    <% }) %>                    
+                </table>
+
+            </div>
+            
+        </div>
+
+    </div>
+    <%- include ./partials/footer.ejs %>
+</body>
+
+</html>
