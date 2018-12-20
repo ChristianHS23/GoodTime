@@ -12,7 +12,7 @@ router.get('/edit/:id',(req,res)=>{
 
     Model.User.findByPk(req.params.id)
     .then(dataUser=>{
-        res.render('editUser.ejs',{data:dataUser})
+        res.render('editUser.ejs',{data:dataUser, session : req.session.user})
     })
     .catch(err=>{
         res.send(err)

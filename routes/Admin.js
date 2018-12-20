@@ -2,7 +2,8 @@ const router = require('express').Router()
 const Model = require('../models')
 
 router.get('/', (req, res) => {
-    console.log(req.session.user,"masukkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
+    let user = req.session.user
+    console.log(user,"masukkkkkkkkkkkkkkkkkkkkkkkkkkkkk");
     res.render('indexadmin')
 })
 
