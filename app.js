@@ -16,7 +16,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 // Use the session middleware
-app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 600000 }}))
+app.use(session({ secret: 'razer'}))
+
 
 app.use('/', Index)
 app.use('/user', User)

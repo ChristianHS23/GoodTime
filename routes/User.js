@@ -30,6 +30,10 @@ router.post('/register',(req,res)=> {
     })
 })
 
+router.get('/login', (req, res)=> {
+    res.render()
+})
+
 router.get('/edit/:id',(req,res)=>{
     res.send('saat tombol edit user dipencet, ini tampilannya')
 })
