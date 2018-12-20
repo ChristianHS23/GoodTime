@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
     let info = req.query.info
     let err = req.query.err
     
-    res.render('index.ejs', {info: info, err: err})
+    res.render('index.ejs', {info: info, err: err, session : req.session.user})
 })
 
 router.get('/top10',(req,res)=>{
@@ -17,7 +17,7 @@ router.get('/top10',(req,res)=>{
         ]
     })
     .then(dataUserTop3=>{
-        res.render('top10user.ejs',{data : dataUserTop3})
+        res.render('top10user.ejs',{data : dataUserTop3 , session : req.session.user})
     })
     .catch(err=>{
         res.send(err)
@@ -29,7 +29,7 @@ router.get(`/register`, (req, res)=> {
     let info = req.query.info
     let err = req.query.err
 
-    res.render('register', {info: info, err: err})
+    res.render('register', {info: info, err: err , session : req.session.user})
 
 })
 
@@ -57,7 +57,7 @@ router.get('/login',(req, res)=>{
 
     let info = req.query.info
     let err = req.query.err
-    res.render('login.ejs',{info:info,err:err})
+    res.render('login.ejs',{info:info, err:err, session : req.session.user})
 })
 
 router.post('/login',(req, res)=>{    

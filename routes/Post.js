@@ -17,7 +17,7 @@ router.post('/:UserId/createpost', (req, res)=> {
         res.send(err)
     })
 
-    res.render('post', {info, err})
+    res.render('post', {info, err, session : req.session.user})
 
 })
 
@@ -32,7 +32,7 @@ router.get('/listPost', (req, res)=> {
         ]
     })
     .then(data => {
-        res.render('post.ejs',{data})        
+        res.render('post.ejs',{data, session : req.session.user})        
         // res.send(data)
     })
     .catch(err => res.send(err.message))
