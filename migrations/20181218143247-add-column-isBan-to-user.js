@@ -21,6 +21,6 @@ module.exports = {
       return queryInterface.dropTable('users');
     */
 
-    return queryInterface.removeColumn('Users', 'isBan')
+    return queryInterface.removeColumn('Users', 'isBan', {})
   }
 };
