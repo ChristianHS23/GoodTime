@@ -24,7 +24,8 @@ module.exports = {
         password: '7bd33ae4351dffa413613687a3d545ca7af0e23472d656d8e9081d19df4a38f9',
         secret: 'cc80e157006998e35cd96f7ca6c955863e47bb7c334d0889209a3d9df3f5ea8f35a4f4403e3d6a4a',
         email: 'christiansihotang23@yahoo.co.id',
-        reputasi: 2
+        reputasi: 2,
+        role:"admin"
       },
       {
         username: 'Pak Kumis',
