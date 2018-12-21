@@ -22,6 +22,9 @@ module.exports = (sequelize, DataTypes) => {
       throw new Error(err)
     })
   })
+  // PostLike.afterCreate(function(value) {
+    
+  // })
 
   PostLike.associate = function(models) {
     // associations can be defined here

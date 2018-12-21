@@ -68,7 +68,9 @@ router.get('/listpost/:postid/like', (req, res) => {
 })
 
 router.get('/:UserId/createpost', (req, res) => {
-    res.render(`createpost.ejs`, { session: req.session.user })
+    let info = req.query.info
+    let err = req.query.err
+    res.render(`createpost.ejs`, { session: req.session.user ,err: err, info: info})
 })
 
 router.post('/:UserId/createpost', (req, res) => {
@@ -81,10 +83,12 @@ router.post('/:UserId/createpost', (req, res) => {
     }
     Model.Post.create(objPost)
         .then(() => {
-            res.redirect(`/user/${userid}/createpost/`)
+
+            res.redirect(`/user/${userid}/createpost?info=Success create post`)
+
         })
         .catch(err => {
-            res.send(err)
+            res.redirect(`/user/${userid}/createpost?err=You are banned from posting in this forum`)
         })
     // res.render('post', {info, err, session : req.session.user})
 
