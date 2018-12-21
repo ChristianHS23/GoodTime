@@ -6,6 +6,22 @@ module.exports = (sequelize, DataTypes) => {
     UserId:DataTypes.INTEGER
   }, {});
 
+  Post.beforeCreate(function(value){
+    return sequelize.models.User.find({
+      where: {
+                id : value.UserId
+              }
+    })
+    .then(data=>{
+      if(data.isBan == true){
+        throw new Error(`you are banned from posting in this forum`)
+      }
+      
+    })
+    .catch(err=>{
+      throw new Error(err)
+    })
+  })
  
 
   Post.associate = function(models) {

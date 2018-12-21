@@ -1,6 +1,9 @@
 const router = require('express').Router()
 const Model = require('../models')
 
+
+
+
 router.post('/:UserId/createpost', (req, res)=> {
     let userid = req.params.UserId    
     let newPost = req.body
@@ -14,7 +17,7 @@ router.post('/:UserId/createpost', (req, res)=> {
         res.redirect(`/post/${userid}`)
     })
     .catch(err=>{
-        res.send(err)
+        res.redirect(`/post/${userid}`)
     })
 
     res.render('post', {info, err, session : req.session.user})

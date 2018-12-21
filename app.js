@@ -39,7 +39,7 @@ app.use('/', Index)
 app.use(middlewareLogin)
 
 app.use('/user', User)
-app.use('/post', Post)
+// app.use('/post', Post)
 app.use('/role', Role)
 app.use('/tag', Tag)
 

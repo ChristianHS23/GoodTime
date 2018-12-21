@@ -13,6 +13,8 @@
                 <form action="/user/<%= session.id %>/createpost" method="POST">
                     <div class="register-top-grid">
                         <h2>Create Post</h2>
+                        <h3><%= info %></h3>
+                        <h3><%= err %></h3>
                         <div>
                             <span>Title<label>*</label></span>
                             <input type="text" name="title">
