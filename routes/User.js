@@ -83,7 +83,9 @@ router.post('/:UserId/createpost', (req, res) => {
     }
     Model.Post.create(objPost)
         .then(() => {
+
             res.redirect(`/user/${userid}/createpost?info=Success create post`)
+
         })
         .catch(err => {
             res.redirect(`/user/${userid}/createpost?err=You are banned from posting in this forum`)
