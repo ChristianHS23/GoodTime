@@ -8,7 +8,7 @@ const User = require('./routes/User')
 const Index = require('./routes/Index')
 const path = require('path')
 const session  = require('express-session')
-const middlewareLogin = require('./middlewares/middlewareLogin')
+const middlewareLogin = require('./helpers/middlewareLogin')
 const Admin = require('./routes/Admin')
 const middlewareLoginRole = require('./helpers/middlewareLoginRole')
 

@@ -1,6 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const crypto = require('crypto')
+  const cryptoHash = require('../helpers/cryptoHash')
   const Op = sequelize.Op
   const User = sequelize.define('User', {
 
@@ -74,12 +75,7 @@ module.exports = (sequelize, DataTypes) => {
           if(err) reject( err)
           else {
             value.secret = buf.toString('hex')
-            
-            const hash = crypto.createHmac( 'sha256', value.secret)
-                     .update(value.password)
-                     .digest('hex');
-                     
-            value.password = hash     
+            value.password = cryptoHash(value.secret, value.password)     
             resolve(this)       
           }
         })
