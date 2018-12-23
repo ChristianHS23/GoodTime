@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = process.env.Port || 3000;
+const port = process.env.PORT || 3000;
 const Post = require('./routes/Post')
 const Role = require('./routes/Role')
 const Tag = require('./routes/Tag')
@@ -8,7 +8,7 @@ const User = require('./routes/User')
 const Index = require('./routes/Index')
 const path = require('path')
 const session  = require('express-session')
-const middlewareLogin = require('./middlewares/middlewareLogin')
+const middlewareLogin = require('./helpers/middlewareLogin')
 const Admin = require('./routes/Admin')
 const middlewareLoginRole = require('./helpers/middlewareLoginRole')
 

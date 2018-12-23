@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const Model = require('../models')
-const crypto = require('crypto')
+const cryptoHash = require('../helpers/cryptoHash')
 
 router.get('/',(req,res)=>{
     let info = req.query.info
@@ -81,15 +81,7 @@ router.post('/login',(req, res)=>{
             let err = 'email not found'
             res.redirect(`/login?err=${err}`)
         } else {
-           console.log("userLogin: ", userLogin)
-           console.log(inputPassword)
-
-            const hash = crypto.createHmac( 'sha256', userLogin.secret)
-            .update(inputPassword)
-            .digest('hex');
-            console.log(hash)
-            if(hash == userLogin.password) {
-             
+            if(cryptoHash(userLogin.secret, inputPassword) == userLogin.password) {
                 req.session.user = {
                     id: userLogin.id,
                     username: userLogin.username,
